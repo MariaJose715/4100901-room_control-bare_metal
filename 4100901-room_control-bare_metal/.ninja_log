@@ -1,0 +1,7 @@
+# ninja log v5
+17	1618	7797484222132214	CMakeFiles/4100901-room_control-bare_metal.dir/Src/syscall.c.obj	e0342b12909ffbad
+469	2048	7803030006577970	build.ninja	af349d8ddaa87044
+55	251	7797484208517433	CMakeFiles/4100901-room_control-bare_metal.dir/Startup/startup_stm32l476rgtx.s.obj	d79a6d73eea99623
+38	1623	7797484222132214	CMakeFiles/4100901-room_control-bare_metal.dir/Src/sysmem.c.obj	53955d5ab12a3053
+45	725	7803030006577970	build.ninja	af349d8ddaa87044
+8	260	7803030009739776	CMakeFiles/4100901-room_control-bare_metal.dir/Src/main.c.obj	e4ac931a29061fbd
