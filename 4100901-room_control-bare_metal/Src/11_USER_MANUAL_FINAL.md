@@ -40,7 +40,7 @@ Sirve como un “pulso” del sistema, mostrando que el microcontrolador no se h
 El botón del usuario (PC13) enciende la bombilla principal (LED de PA5).  
 - Al presionar el botón, el LED se enciende y permanece así durante **3 segundos**.  
 - Luego de ese tiempo, el sistema apaga automáticamente el LED.  
-- Durante este evento, se envían mensajes por UART informando la acción (por ejemplo: *“Luz encendida”*, *“Luz apagada”*).  
+- Durante este evento, se envían mensajes por UART informando la acción (por ejemplo: *“Luz encendida”*, *“Luz apagada”**“brillo ajustado”*).  
 
 #### 3.3 Comunicación UART
 El sistema se puede controlar también por comandos desde un monitor serial  a **115200 bps**.  
@@ -49,9 +49,9 @@ Los principales comandos son:
 - `i` → Cambia a modo *idle* o *en reposo* (apaga la luz).  
 - `h` → Fija el brillo PWM al **100 %**.  
 - `l` → Fija el brillo PWM al **0 %** (apagado).  
-- `B0`–`B9` → Cambia el brillo de la bombilla PWM del **0 % al 90 %**.  
+- `1`–`9` → Cambia el brillo de la bombilla PWM del **10 % al 90 %**.  
 
-El sistema también responde con mensajes como *“Sala ocupada”*, *“Sala vacía”* o *“Brillo ajustado al 50 %”*.  
+El sistema también responde con mensajes como *“Sala ocupada”*, *“Sala vacía”* o *“Brillo ajustado al %”*.  
 
 #### 3.4 Control PWM de Bombilla
 El LED en **PA6** está controlado por el temporizador **TIM3_CH1**, configurado en modo PWM con frecuencia de **1 kHz**.  
@@ -100,8 +100,7 @@ El proyecto se divide en varios módulos que trabajan juntos:
    - **Baud rate:** 115200  
    - **Bits de datos:** 8  
    - **Paridad:** Ninguna  
-   - **Bits de parada:** 1  
-   - **Sin control de flujo**  
+   - **Bits de parada:** 1    
 
 #### 2. Inicio
 Al energizar la placa:  
@@ -113,7 +112,7 @@ Al energizar la placa:
 
 #### 3. Interacción
 - **Botón físico:** Presiona B1 para encender la luz por 3 segundos.  
-- **Comandos UART:** Envía letras o comandos como `o`, `i`, `h`, `l`, o `B5` para controlar el sistema.  
+- **Comandos UART:** Envía letras o comandos como `o`, `i`, `h`, `l`, o `1-9` para controlar el sistema.  
 - **PWM:** Observa cómo cambia el brillo del LED en PA6 según el comando.  
 
 ---
