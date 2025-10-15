@@ -1,4 +1,5 @@
 #include "systicks.h"
+#include "gpios.h"
 
 volatile uint32_t ms_counter = 0;
 
@@ -12,6 +13,12 @@ void init_systick(void)
 void SysTick_Handler(void)
 {
     ms_counter++;
+
+    static uint32_t hb = 0;
+    if (++hb >= 500) {        // Toggle cada 500 ms
+        GPIOA->ODR ^= (1U << 5);  // LD2 (PA5) -> parpadeo de latido
+        hb = 0;
+    }
 }
 
 void delay_ms(uint32_t ms)
